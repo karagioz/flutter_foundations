@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_foundations/randomizer_page.dart';
 import 'package:flutter_foundations/range_selector_form.dart';
 
 class RangeSelectorPage extends StatefulWidget {
@@ -29,8 +30,15 @@ class _RangeSelectorPageState extends State<RangeSelectorPage> {
         onPressed: () {
           if (formKey.currentState?.validate() == true) {
             formKey.currentState?.save();
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => RandomizerPage(
+                  min: _min,
+                  max: _max,
+                ),
+              ),
+            );
           }
-          // TODO: Navigate to the generator page
         },
       ),
     );
